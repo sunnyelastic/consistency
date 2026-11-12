@@ -1819,15 +1819,19 @@ body.has-close .ec-foot { margin-top: 0; }
 .bts .v2-h1.fl, .bts .v2-h2.fl, .bts .v2-h3l.fl { white-space: normal !important; }
 .bts .v2-h1 br.fb, .bts .v2-h2 br.fb, .bts .v2-h3l br.fb { display: none; }
 .bts .v2-faqbox > .v2-h2 { height: auto; }
-/* h4: Inter Semibold 20 / 130% / 0 — all card titles, accordion + FAQ titles, story quote */
+/* h4: Inter Semibold 18 / 130% / 0 — all card titles, accordion + FAQ titles, story quote */
 .bts .v2-h3, .bts .v2-h3m, .bts .v2-acc__btn, .bts .v2-faq__q span, .bts .v2-quote__q {
-  font: 600 20px/1.3 var(--sans) !important; letter-spacing: 0 !important; }
-/* eb: Geist Mono Semibold 16 / +20% / Elastic Blue (line height n/a) */
-.bts .v2-eb { font: 600 16px/normal var(--mono) !important; letter-spacing: 0.2em !important; color: #0b64dd !important; }
+  font: 600 18px/1.3 var(--sans) !important; letter-spacing: 0 !important; }
+/* eb: Geist Mono Semibold 14 / -2% / grey #69707D (line height n/a) */
+.bts .v2-eb { font: 600 14px/normal var(--mono) !important; letter-spacing: -0.02em !important; color: #69707d !important; }
 /* p1: Inter Regular 16 / 150% */
 .bts .v2-p, .bts .v2-sub, .bts .v2-hero__lede, .bts .v2-faq__a, .bts .v2-quote__by { font: 400 16px/1.5 var(--sans) !important; letter-spacing: 0 !important; }
 /* p2: Inter Regular 14 / 150% */
-.bts .v2-p14, .bts .v2-checks li, .bts .v2-acc__body p { font: 400 14px/1.5 var(--sans) !important; letter-spacing: 0 !important; }
+.bts .v2-acc__body p { font: 400 14px/1.5 var(--sans) !important; letter-spacing: 0 !important; }
+/* section 6 text + checklist match the card text (p1) */
+.bts .v2-p14, .bts .v2-checks li { font: 400 16px/1.5 var(--sans) !important; letter-spacing: 0 !important; }
+.bts .v2-p14.fl { white-space: normal !important; }
+.bts .v2-p14 br.fb { display: none; }
 /* Inter titles wrap naturally (the old forced line breaks were set for Geist Mono widths) */
 .bts .v2-h3.fl, .bts .v2-h3m.fl, .bts .v2-quote__q.fl, .bts .v2-quote__by.fl { white-space: normal !important; }
 .bts .v2-h3 br.fb, .bts .v2-h3m br.fb, .bts .v2-quote__q br.fb, .bts .v2-quote__by br.fb { display: none; }
@@ -1837,6 +1841,53 @@ body.has-close .ec-foot { margin-top: 0; }
 .bts .v2-h3l.bts-sect { font: 500 48px/1.15 var(--mono) !important; letter-spacing: -0.02em !important; }
 .bts .v2-split__txt { height: auto; min-height: 307px; }
 .bts blockquote.v2-quote__q { margin: 0; }
+
+
+/* ===== card padding: 32px on every card (inside the border) ===== */
+.bts .v2-card, .bts .v2-mcard, .bts .v2-mcard--split, .bts .v2-mcard--full:not(.v2-mcard--split) { padding: 32px !important; }
+.bts .v2-mcard--split > div:first-child { margin-top: 0; }
+/* fixed card heights become minimums so 32px padding never squeezes content */
+.bts .v2-grid4 { grid-template-rows: minmax(264.19px, auto) minmax(242.59px, auto); }
+.bts .v2-stats > .v2-card { height: auto; min-height: 395.98px; }
+.bts .v2-pair > .v2-card { height: auto; min-height: 355.69px; }
+.bts .v2-quad > .v2-card, .bts .v2-quad > .v2-card:last-child { height: auto; min-height: 221px; }
+.bts .v2-quad, .bts .v2-pair { align-items: stretch; }
+/* customer story card: 32px inset around the photo */
+.bts .v2-quote__photo { padding: 32px 0 32px 32px; }
+.bts .v2-quote__photo[style*="position:absolute"] { left: 32px !important; top: 32px !important; }
+
+
+/* ===== paragraph rule: 18px outside cards, 15px inside cards (both 150%) ===== */
+.bts .v2-p, .bts .v2-sub, .bts .v2-hero__lede, .bts .v2-p14, .bts .v2-checks li, .bts .v2-acc__body p, .bts .v2-faq__a, .bts .v2-faq__a p, .bts .v2-faq__a li {
+  font: 400 18px/1.5 var(--sans) !important; letter-spacing: 0 !important; }
+.bts .v2-card .v2-p, .bts .v2-mcard .v2-p, .bts .v2-quote .v2-quote__by {
+  font: 400 15px/1.5 var(--sans) !important; letter-spacing: 0 !important; }
+/* paragraphs wrap naturally at the new sizes (old forced breaks were set for 16px) */
+.bts .v2-p.fl, .bts .v2-sub.fl, .bts .v2-sub .fl, .bts .v2-hero__lede.fl, .bts .v2-p14.fl, .bts .v2-acc__body p.fl { white-space: normal !important; }
+.bts .v2-p br.fb, .bts .v2-sub br.fb, .bts .v2-hero__lede br.fb, .bts .v2-p14 br.fb, .bts .v2-acc__body p br.fb { display: none; }
+
+
+/* customer story photo fits inside its 32px inset (card 511.2 tall incl. 1px top + 4px bottom border) */
+.bts .v2-quote__photo { align-self: stretch; }
+.bts .v2-quote__photo .v2-ph { aspect-ratio: auto !important; width: 100%; height: calc(511.2px - 5px - 64px) !important; }
+
+
+/* ===== card eyebrow variants (Observability at AI scale) ===== */
+.bts .v2-eb.eb--blue { color: #0b64dd !important; }
+.bts .v2-eb.eb--slash::before { content: "//"; color: #0b64dd; letter-spacing: 0.04em; margin-right: 8px; }
+.bts .v2-eb.eb--ink { color: #1c1e23 !important; }
+
+
+/* ===== paragraph sizes: 20px hero + section intros, 16px everything else (cards included), 150% ===== */
+.bts .v2-p, .bts .v2-p14, .bts .v2-checks li, .bts .v2-acc__body p, .bts .v2-faq__a, .bts .v2-faq__a p, .bts .v2-faq__a li,
+.bts .v2-card .v2-p, .bts .v2-mcard .v2-p, .bts .v2-quote .v2-quote__by { font: 400 16px/1.5 var(--sans) !important; letter-spacing: 0 !important; }
+.bts .v2-hero__lede, .bts .v2-sub, .bts .v2-sub p { font: 400 20px/1.5 var(--sans) !important; letter-spacing: 0 !important; }
+
+
+/* ===== section intros: 16px, 6 grid columns wide (one column in from each side), centered ===== */
+.bts .v2-sub, .bts .v2-sub p { font: 400 16px/1.5 var(--sans) !important; letter-spacing: 0 !important; }
+.bts .v2-sub { width: 100% !important; max-width: 604px !important; margin-left: auto !important; margin-right: auto !important; padding-left: 0 !important; padding-right: 0 !important; }
+.bts .v2-hero__lede { font: 400 20px/1.5 var(--sans) !important; }
 
 /* page switch (floats; takes no layout space) */
 .bts-switch { position: fixed; left: 16px; bottom: 16px; z-index: 300; display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: #1c1e23; box-shadow: 0 8px 24px rgba(16,24,40,.3); }
@@ -1915,13 +1966,13 @@ body.has-close .ec-foot { margin-top: 0; }
       <p class="v2-sub fl">AI and cloud-native workloads are generating more telemetry than teams can afford to keep. The result: <br class="fb">blind spots that undermine incident management and root cause analysis.</p>
     </div>
     <div class="v2-grid2 v2-body">
-      <article class="v2-card"><div class="v2-card__txt"><p class="v2-eb">Reduce costs</p><h3 class="v2-h3 fl" style="padding-right:63.32px">Best-in-class efficiency for logs, metrics, and <br class="fb">traces</h3><p class="v2-p fl" style="padding-right:4.09px">Keep it all. Elasticsearch packs more telemetry into less storage, keeping <br class="fb">costs low and performance high — even for high cardinality data.</p></div>
+      <article class="v2-card"><div class="v2-card__txt"><p class="v2-eb eb--blue">LogsDB</p><h3 class="v2-h3 fl" style="padding-right:63.32px">Best-in-class efficiency for logs, metrics, and <br class="fb">traces</h3><p class="v2-p fl" style="padding-right:4.09px">Keep it all. Elasticsearch packs more telemetry into less storage, keeping <br class="fb">costs low and performance high — even for high cardinality data.</p></div>
         <div class="v2-tags"><a class="v2-tag" href="#">Logsdb index mode</a><a class="v2-tag" href="#">Columnar metrics engine</a></div></article>
-      <article class="v2-card"><div class="v2-card__txt"><p class="v2-eb">Find root causes</p><h3 class="v2-h3 fl">Your logs have the answer. Elastic finds it.</h3><p class="v2-p fl" style="padding-right:32.64px">Elastic extracts structure, meaning, and operational context from raw <br class="fb">telemetry, turning a reactive, expert-only signal into a proactive one.</p></div>
+      <article class="v2-card"><div class="v2-card__txt"><p class="v2-eb eb--slash">Streams</p><h3 class="v2-h3 fl">Your logs have the answer. Elastic finds it.</h3><p class="v2-p fl" style="padding-right:32.64px">Elastic extracts structure, meaning, and operational context from raw <br class="fb">telemetry, turning a reactive, expert-only signal into a proactive one.</p></div>
         <div class="v2-tags"><a class="v2-tag" href="#">Streams</a><a class="v2-tag" href="#">Log analytics</a></div></article>
-      <article class="v2-card"><div class="v2-card__txt"><p class="v2-eb">Solve problems faster</p><h3 class="v2-h3 fl">AI-driven investigations with full context</h3><p class="v2-p fl" style="padding-right:56.8px">Elastic gives AI SRE agents and ML the richest possible context to <br class="fb">investigate, surface root cause, and automate remediation with <br class="fb">transparency that keeps teams in control.</p></div>
+      <article class="v2-card"><div class="v2-card__txt"><p class="v2-eb">AI SRE</p><h3 class="v2-h3 fl">AI-driven investigations with full context</h3><p class="v2-p fl" style="padding-right:56.8px">Elastic gives AI SRE agents and ML the richest possible context to <br class="fb">investigate, surface root cause, and automate remediation with <br class="fb">transparency that keeps teams in control.</p></div>
         <div class="v2-tags"><a class="v2-tag" href="#">AI SRE</a><a class="v2-tag" href="#">Context Engine</a><a class="v2-tag" href="#">Machine learning</a><a class="v2-tag" href="#">Workflow automation</a></div></article>
-      <article class="v2-card"><div class="v2-card__txt"><p class="v2-eb">Future proof with open standards</p><h3 class="v2-h3 fl">OpenTelemetry-first and Prometheus-native</h3><p class="v2-p fl" style="padding-right:0.53px">Ingest any data from any source. Elastic is open by design, schema- <br class="fb">agnostic, Prometheus-native, and built on OpenTelemetry (OTel) from the <br class="fb">ground up.</p></div>
+      <article class="v2-card"><div class="v2-card__txt"><p class="v2-eb eb--ink">OpenTelemetry</p><h3 class="v2-h3 fl">OpenTelemetry-first and Prometheus-native</h3><p class="v2-p fl" style="padding-right:0.53px">Ingest any data from any source. Elastic is open by design, schema- <br class="fb">agnostic, Prometheus-native, and built on OpenTelemetry (OTel) from the <br class="fb">ground up.</p></div>
         <div class="v2-tags"><a class="v2-tag" href="#">OpenTelemetry-first</a><a class="v2-tag" href="#">Prometheus monitoring</a></div></article>
     </div>
   </div>
