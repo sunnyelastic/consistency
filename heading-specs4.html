@@ -120,16 +120,17 @@
 .sr__old { margin-bottom:0 !important; }
 .sr__h--after { margin-top:64px !important; }
 .why { margin:-6px 0 20px !important; max-width:92ch; font-size:15px !important; line-height:1.55 !important; color:#343741 !important; }
+.scale-note { margin:12px 0 0; font:500 13px/1.4 Inter, system-ui, sans-serif; color:#6b7078; }
 @media (max-width:1000px) { .sr__old, .sr__wrap { grid-template-columns:1fr; } }
 </style>
 </head>
-<body class="spec actual">
+<body class="spec">
 <div class="spec__top">
   <h1>Heading specs: titles and headings</h1>
   <p>Twenty components from Elastic.co home / key page redesign 2026, in the order of the heading-variants GitHub ticket (ticket class shown on each component). Each shows the current design (Before) and the same component in our type scale (After), with labels on headings and titles only. Copyright General Type Studio is shown with Mier B as a stand-in; images are placeholders.</p>
   <div class="scale"><span><b>h1</b> Geist Mono Medium 60 / 115%</span><span><b>h2</b> Geist Mono Medium 48 / 115%</span><span><b>h3</b> Geist Mono Medium 32 / 130%</span><span><b>h4</b> Inter Semibold 20 / 130%</span><span><b>eb</b> Geist Mono Semibold 16 · +20% · Elastic Blue</span><span><b>p1</b> Inter 16 / 150%</span><span><b>p2</b> Inter 14 / 150%</span></div>
   <div class="notes"><b>Notes from review</b><ul><li><code>display-font-size</code> (40 → 64px hero, not live): ignore.</li><li><code>quotes-text</code> (links inside quotes get a blue underline, use_cases): ignore.</li><li>Contact page tabs (“Contact sales / General questions”, <code>.h6-variant-2</code>): use our regular buttons instead of tabs.</li></ul></div>
-  <div><span class="zoom" role="group" aria-label="Zoom"><button type="button" data-z="actual" aria-pressed="true">Actual size</button><button type="button" data-z="fit" aria-pressed="false">Fit to screen</button></span></div>
+  <div><p class="scale-note">Previews are scaled to fit the screen; labels show the real sizes.</p></div>
 </div>
 <main class="spec__main"><section class="sr" data-w="700">
   <header class="sr__h"><span class="sr__grp">01</span><h2>Cloud regions tabs</h2><span class="sr__state">Before</span><span class="sr__node">Ticket: <code>h6-variant-1 (cloud_regions, carousels, events_overview)</code> · Figma 8806:74190</span></header>
@@ -530,8 +531,6 @@
   }
   function draw(sec) { var w = +sec.dataset.w; fit(sec.querySelector('.sr__old .sr__fit'), w); fit(sec.querySelector('.sr__wrap .sr__fit'), w); label(sec.querySelector('.sr__old')); label(sec.querySelector('.sr__wrap')); }
   function all() { document.querySelectorAll('.sr').forEach(draw); }
-  document.querySelectorAll('[data-z]').forEach(function (b) { b.onclick = function () { document.body.classList.toggle('actual', b.dataset.z === 'actual');
-    document.querySelectorAll('[data-z]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); all(); }; });
   window.addEventListener('resize', all); if (document.fonts) document.fonts.ready.then(all); all();
 })();
 </script>
