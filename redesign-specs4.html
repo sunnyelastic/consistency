@@ -1272,14 +1272,15 @@ body:not(:has(.mn)) .tt { top: 16px; max-height: calc(100vh - 32px); }
 .sr__old { margin-bottom:0 !important; }
 .sr__h--after { margin-top:64px !important; }
 .why { margin:-6px 0 20px !important; max-width:92ch; font-size:15px !important; line-height:1.55 !important; color:#343741 !important; }
+.scale-note { margin:12px 0 0; font:500 13px/1.4 Inter, system-ui, sans-serif; color:#6b7078; }
 @media (max-width: 1000px) { .sr__wrap, .sr__old { grid-template-columns:1fr; } .sr__gutter { min-height:0; } }
 </style>
 </head>
-<body class="spec actual">
+<body class="spec">
 <div class="spec__top">
   <h1>Redesign specs</h1>
   <p>Each module shows the old design (top) and the new design with specs (below), measured from the rendered code. Values are real pixels at 1440px. Modules marked Redesign in the comparison are not included (they have no final design yet), except the Gallery and quote modules, shown here in the new type scale.</p>
-  <div class="legend"><span><i class="lg-dot"></i>Type style</span><span><i class="lg-col"></i>Layout change</span><span class="zoom" role="group" aria-label="Zoom"><button type="button" data-z="actual" aria-pressed="true">Actual size</button><button type="button" data-z="fit" aria-pressed="false">Fit to screen</button></span></div>
+  <div class="legend"><span><i class="lg-dot"></i>Type style</span><span><i class="lg-col"></i>Layout change</span><p class="scale-note">Previews are scaled to fit the screen; labels show the real sizes.</p></div>
 </div>
 <main class="spec__main"><section class="sr">
   <header class="sr__h"><span class="sr__grp">Hero</span><h2>1.1 Centered image</h2><span class="sr__state">Before</span></header>
@@ -3554,8 +3555,6 @@ body:not(:has(.mn)) .tt { top: 16px; max-height: calc(100vh - 32px); }
   }
   function fitOld(sec) { var f = sec.querySelector('.sr__old .sr__fit'); if (!f) return; var st = f.firstElementChild, k = document.body.classList.contains('actual') ? 1 : f.clientWidth / 1312; st.style.transform = 'scale(' + k + ')'; f.style.height = (st.offsetHeight * k) + 'px'; }
   function all() { document.querySelectorAll('.sr').forEach(function (s) { fitOld(s); draw(s); }); }
-  document.querySelectorAll('[data-z]').forEach(function (b) { b.onclick = function () { document.body.classList.toggle('actual', b.dataset.z === 'actual');
-    document.querySelectorAll('[data-z]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); all(); }; });
   window.addEventListener('resize', all); if (document.fonts) document.fonts.ready.then(all); all();
 })();
 </script>
