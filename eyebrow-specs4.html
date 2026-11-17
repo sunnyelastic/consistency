@@ -79,16 +79,17 @@
 .sr__old { margin-bottom:0 !important; }
 .sr__h--after { margin-top:64px !important; }
 .why { margin:-6px 0 20px !important; max-width:92ch; font-size:15px !important; line-height:1.55 !important; color:#343741 !important; }
+.scale-note { margin:12px 0 0; font:500 13px/1.4 Inter, system-ui, sans-serif; color:#6b7078; }
 @media (max-width:1000px) { .sr__old, .sr__wrap { grid-template-columns:1fr; } }
 </style>
 </head>
-<body class="spec actual">
+<body class="spec">
 <div class="spec__top">
   <h1>Eyebrow specs: key page components</h1>
   <p>Components from Elastic.co home / key page redesign 2026, in the order of the topic-heading GitHub ticket. Each shows the current design (Before) and the same component with our eyebrow treatment (After). Labels are on eyebrows only: the current style on Before, the new style on After. Violet marks a layout change. Titles use Copyright General Type Studio in Figma; Mier B stands in here. Images are placeholders.</p>
   <div class="notes"><b>Ticket rows without a component here</b><ul><li><b>QuotesCarousel colors</b> <code>color1</code>–<code>color5</code> (eyebrow above a quote, e.g. “ELASTIC OBSERVABILITY”): <b>missing</b>, no Figma component in this set.</li><li>Banner badge colors (<code>dark-pink</code>, <code>ink</code>, <code>light-grey</code>, <code>light-poppy</code>, <code>light-teal</code>, <code>midnight</code>): shown through the developer banner; the individual colours aren’t in this set.</li><li>Contact panel (“SEARCH. OBSERVE. PROTECT.”) isn’t listed in the ticket; kept last.</li></ul></div>
   <div class="rule"><span>Eyebrow treatment</span><b>Eyebrow</b><span>Geist Mono Semibold · 16px · +20% · Elastic Blue #0B64DD · white on dark backgrounds</span></div>
-  <div><span class="zoom" role="group" aria-label="Zoom"><button type="button" data-z="actual" aria-pressed="true">Actual size</button><button type="button" data-z="fit" aria-pressed="false">Fit to screen</button></span></div>
+  <div><p class="scale-note">Previews are scaled to fit the screen; labels show the real sizes.</p></div>
 </div>
 <main class="spec__main"><section class="sr" data-w="776">
   <header class="sr__h"><span class="sr__grp">01</span><h2>Resource cards</h2><span class="sr__state">Before</span><span class="sr__node">Ticket: <code>small</code> · Figma 8806:42935</span></header>
@@ -251,8 +252,6 @@
     label(sec.querySelector('.sr__old'), false); label(sec.querySelector('.sr__wrap'), true);
   }
   function all() { document.querySelectorAll('.sr').forEach(draw); }
-  document.querySelectorAll('[data-z]').forEach(function (b) { b.onclick = function () { document.body.classList.toggle('actual', b.dataset.z === 'actual');
-    document.querySelectorAll('[data-z]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); all(); }; });
   window.addEventListener('resize', all); if (document.fonts) document.fonts.ready.then(all); all();
 })();
 </script>
